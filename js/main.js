@@ -4,7 +4,7 @@ let puzzle = []
 let grid = 3
 
 generate_puzzle();
-shuffle_puzzle();
+disable_last_item();
 render_puzzle();
 handle_input();
 
@@ -41,7 +41,6 @@ function generate_puzzle(){
         })
     }
 
-    // console.log(puzzle)
 }
 
 function render_puzzle(){
@@ -51,11 +50,22 @@ function render_puzzle(){
         if(puzzle_item.disabled) continue;
 
         puzzle_container.innerHTML += `
-            <div class="puzzle-item" style="left: ${puzzle_item.x}px; top: ${puzzle_item.y}px   ;">
+            <div class="puzzle-item" style="left: ${puzzle_item.x}px; top: ${puzzle_item.y}px;">
                 ${puzzle_item.value}
             </div>
         `
     }
+}
+
+function puzzle_is_correct(){
+
+    for(let puzzle_item of puzzle){
+        if(puzzle_item.value != puzzle_item.position){
+            return false
+        }
+    }
+
+    return true
 }
 
 function shuffle_puzzle(){
@@ -68,6 +78,11 @@ function shuffle_puzzle(){
         i++;
     }
 
+    disable_last_item();
+
+}
+
+function disable_last_item(){
     const disabled_last_item = puzzle.find(item => item.value === grid * grid);
     disabled_last_item.disabled = true;
 }
@@ -95,7 +110,6 @@ function handle_key_down(e){
             move_up();
             break;
         case "ArrowLeft":
-            console.log("vaivja")
             move_left();
             break;
         case "ArrowRight":
@@ -104,15 +118,17 @@ function handle_key_down(e){
     }
 
     render_puzzle();
+    if(puzzle_is_correct())
+        console.log("is correct")
+    else
+        console.log("is not correct")
 }
 
 function move_down(){
     const empty_piece = get_empty_piece();
     const up_piece = get_up_piece();
     if(up_piece){
-        console.log("before: ",empty_piece, up_piece)
         swap_pos(empty_piece, up_piece, false);
-        console.log("after: ",empty_piece, up_piece)
     }
 }
 function move_up(){
