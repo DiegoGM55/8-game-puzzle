@@ -281,6 +281,14 @@ function solve(alg){
         title.innerHTML = "Best first - Caminho";
     }
     
+    let movs = document.getElementById("movs");
+    movs.innerHTML = 'Movimentos: ' + ans_puzzle.caminho.length; 
+    let iter = document.getElementById("iter");
+    iter.innerHTML = 'Iterações: ' + ans_puzzle.qtdIteracoes; 
+    let prof = document.getElementById("prof");
+    prof.innerHTML = 'Profundidade: ' + ans_puzzle.profundidade; 
+    let nos_vis = document.getElementById("nos_vis");
+    nos_vis.innerHTML = 'Nós Visitados:' +  ans_puzzle.qtdNosVisitados; 
 
     let i = 1;
     for(let step of ans_puzzle.caminho){

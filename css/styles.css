@@ -94,3 +94,8 @@ button:hover{
 #path h2{
     margin: 20px;
 }
+
+#infos{
+    width: 400px;
+    margin: 0 auto;
+}
