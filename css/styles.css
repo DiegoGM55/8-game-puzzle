@@ -11,6 +11,15 @@
     position: relative;
 }
 
+.shuffle{
+    display: block; 
+    margin-bottom: 20px;
+}
+
+.shuffle input{
+    padding: 7px;
+}
+
 .puzzle-item{
     border: 1px solid #fff; 
     color: #fff;
@@ -41,4 +50,47 @@ button{
 
 button:hover{
     background-color: rgb(99, 100, 102);
+}
+
+#path{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.step{
+    width: 60px;
+    height: 60px;
+    background-color: #3d3e3f;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+.number{
+    flex: 1;
+    width: 19px;
+    height: 19px;
+    border: 1px solid #fff;
+    text-align: center;
+    color: #fff;
+}
+
+#alg{
+    text-align: center;
+}
+
+.arrow{
+
+    text-align: center;
+    margin-left: 15px;
+    margin-top: 20px;
+
+}
+
+#path h2{
+    margin: 20px;
 }

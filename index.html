@@ -18,7 +18,20 @@
 
         <p>Instruções: Mexa as peças com as setas do teclado.</p>
 
-        <button onclick="shuffle_puzzle_button();">Embaralhar</button>
+        <div class="shuffle">
+            <input id="nmovs" type="text" placeholder="Número de movimentos"> 
+            <button onclick="shuffle_puzzle_button();">Shuffle</button>
+        </div>
+
+        <button onclick="solve('astar');">Solve with A*</button>
+
+        <button onclick="solve('bestFirst');">Solve with Best First</button>
+    </div>
+
+    <h1 id="alg"></h1>
+    <div id="path">
+
+        
     </div>
 
     <script src='./js/main.js'></script>
